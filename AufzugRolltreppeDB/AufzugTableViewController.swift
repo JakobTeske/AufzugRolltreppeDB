@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AufzugTableViewController: UITableViewController, FacilityDelegate {
+class AufzugTableViewController: UITableViewController {
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     var facilities = [Facility]()
@@ -21,21 +21,13 @@ class AufzugTableViewController: UITableViewController, FacilityDelegate {
         //tableView.isHidden = trueactivit
         activityIndicator.startAnimating()
         
-        
-        let dbApiUrl = URL(string: "https://adam.noncd.db.de/api/v1.0/facilities?")
-        if let url = dbApiUrl {
-            task = URLSession.shared.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-                if let error = error {
-                    self.fetchingFacilitesFailedWith(error: error)
-                    return
-                } else {
-                    self.receivedJsonFor(facilities: data)
-                    return
-                }
-            })
-            task!.resume()
-        }
-        
+        let facilityRepository = FacilitiesRespository()
+        facilityRepository.getFacilities().then({ facilities in
+            self.facilities = facilities
+            self.tableView.reloadData()
+            self.activityIndicator.stopAnimating()
+            self.tableView.reloadData()
+        })
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -63,7 +55,7 @@ class AufzugTableViewController: UITableViewController, FacilityDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "facilityCell", for: indexPath)
-        cell.textLabel?.text = facilities[indexPath.row].description
+        cell.textLabel?.text = facilities[indexPath.row].title
         return cell
     }
 
@@ -119,25 +111,6 @@ class AufzugTableViewController: UITableViewController, FacilityDelegate {
     }
     */
 
-    //MARK Facility Delegate
-    func receivedJsonFor(facilities data: Data?) {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-        }
-        if let data = data {
-            let jsonData = try? JSONSerialization.jsonObject(with: data, options: [])
-            if let array = jsonData as? [[String: Any]] {
-                for element in array {
-                    if let facility = Facility(fromJson: element) {
-                        facilities.append(facility)
-                    }
-                }
-            }
-        }
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
@@ -147,11 +120,4 @@ class AufzugTableViewController: UITableViewController, FacilityDelegate {
         }
     }
     
-    
-    func fetchingFacilitesFailedWith(error: Error?) {
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-        }
-        print("\(error!)")
-    }
 }

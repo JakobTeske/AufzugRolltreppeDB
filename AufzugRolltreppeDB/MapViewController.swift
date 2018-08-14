@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    var facilites = [Facility]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let facilityRepository = FacilitiesRespository()
+        facilityRepository.getFacilities().then({ facilities in
+            print("Adding annotations")
+            self.mapView.addAnnotations(facilities)
+        })
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +31,9 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
+        
+    }
 
     /*
     // MARK: - Navigation
