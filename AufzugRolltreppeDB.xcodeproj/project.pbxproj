@@ -17,6 +17,7 @@
 		3621409220CD66D1001EF336 /* FacilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3621409120CD66D1001EF336 /* FacilityTableViewCell.swift */; };
 		36F194CC20D6FF0E0006E804 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F194CB20D6FF0E0006E804 /* MapViewController.swift */; };
 		36FD48B120D529B1006AC9DC /* FacilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD48B020D529B1006AC9DC /* FacilityViewController.swift */; };
+		7356991E212C05FB007D4684 /* FacilityMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356991D212C05FB007D4684 /* FacilityMarkerAnnotationView.swift */; };
 		73A8DFF620F5F96F0094F14B /* FacilitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8DFF520F5F96F0094F14B /* FacilitiesRepository.swift */; };
 		73F222BE2112F71B002EE2F6 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F222BD2112F71B002EE2F6 /* Promises.framework */; };
 		73F222BF2112F71B002EE2F6 /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73F222BD2112F71B002EE2F6 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,6 +53,7 @@
 		3621409120CD66D1001EF336 /* FacilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityTableViewCell.swift; sourceTree = "<group>"; };
 		36F194CB20D6FF0E0006E804 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		36FD48B020D529B1006AC9DC /* FacilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityViewController.swift; sourceTree = "<group>"; };
+		7356991D212C05FB007D4684 /* FacilityMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		73A8DFF520F5F96F0094F14B /* FacilitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilitiesRepository.swift; sourceTree = "<group>"; };
 		73F222BD2112F71B002EE2F6 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
 		73F222C22112F74F002EE2F6 /* Promises.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Promises.framework.dSYM; path = Carthage/Build/iOS/Promises.framework.dSYM; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				3621408F20CD544F001EF336 /* FacilityDelegate.swift */,
 				3621409120CD66D1001EF336 /* FacilityTableViewCell.swift */,
 				73A8DFF520F5F96F0094F14B /* FacilitiesRepository.swift */,
+				7356991D212C05FB007D4684 /* FacilityMarkerAnnotationView.swift */,
 			);
 			path = AufzugRolltreppeDB;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				3621408C20CC9891001EF336 /* AufzugTableViewController.swift in Sources */,
 				3621407A20CC97AA001EF336 /* AppDelegate.swift in Sources */,
 				73A8DFF620F5F96F0094F14B /* FacilitiesRepository.swift in Sources */,
+				7356991E212C05FB007D4684 /* FacilityMarkerAnnotationView.swift in Sources */,
 				3621408E20CC9F29001EF336 /* Facility.swift in Sources */,
 				36FD48B120D529B1006AC9DC /* FacilityViewController.swift in Sources */,
 				3621409020CD544F001EF336 /* FacilityDelegate.swift in Sources */,

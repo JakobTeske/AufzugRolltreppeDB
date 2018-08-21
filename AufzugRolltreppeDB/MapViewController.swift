@@ -13,17 +13,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var facilites = [Facility]()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mapView.register(FacilityMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
         let facilityRepository = FacilitiesRespository()
         facilityRepository.getFacilities().then({ facilities in
-            print("Adding annotations")
             self.mapView.addAnnotations(facilities)
         })
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkUserLocationAuthorizationStatus()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,10 +38,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func mapViewWillStartLoadingMap(_ mapView: MKMapView) {
-        
+    func checkUserLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+            mapView.setCenter(mapView.userLocation.coordinate, animated: true)
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
-
+    
     /*
     // MARK: - Navigation
 
