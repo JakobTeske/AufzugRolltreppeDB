@@ -24,7 +24,7 @@ class FacilityViewController: UIViewController {
         if let facilityToPresent = facility {
             equipmentLabel.text = "Nummer: \(facilityToPresent.equipmentnumber)"
             typeLabel.text = "Typ: \(facilityToPresent.type.rawValue)"
-            descriptionLabel.text = "Beschreibung: \(facilityToPresent.description)"
+            descriptionLabel.text = "Beschreibung: \(facilityToPresent.facilityDescription)"
             coordinatesLabel.text = "\(facilityToPresent.lat),\(facilityToPresent.lon)"
             stateLabel.text = "Status: \(facilityToPresent.state.rawValue)"
             stationnumberLabel.text = "Bahnhofnr.: \(facilityToPresent.stationnumber)"

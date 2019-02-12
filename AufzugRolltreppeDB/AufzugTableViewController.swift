@@ -11,7 +11,12 @@ import UIKit
 class AufzugTableViewController: UITableViewController {
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    var facilities = [Facility]()
+    
+    var facilities: [Facility]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     var task: URLSessionDataTask?
     
     override func viewDidLoad() {
@@ -24,9 +29,7 @@ class AufzugTableViewController: UITableViewController {
         let facilityRepository = FacilitiesRespository()
         facilityRepository.getFacilities().then({ facilities in
             self.facilities = facilities
-            self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
-            self.tableView.reloadData()
         })
         
         // Uncomment the following line to preserve selection between presentations
@@ -50,12 +53,18 @@ class AufzugTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return facilities.count == 0 ? 0 : facilities.count
+        guard let facilities = facilities else {
+            return 0
+        }
+        return facilities.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "facilityCell", for: indexPath)
-        cell.textLabel?.text = facilities[indexPath.row].title
+        guard let facility = facilities?[indexPath.row] else {
+            return cell
+        }
+        cell.textLabel?.text = facility.title
         return cell
     }
 
@@ -115,7 +124,10 @@ class AufzugTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
             if let facilityViewController = segue.destination as? FacilityViewController {
-                facilityViewController.facility = facilities[self.tableView.indexPathForSelectedRow!.row]
+                guard let facility = facilities?[self.tableView.indexPathForSelectedRow!.row] else {
+                    return
+                }
+                facilityViewController.facility = facility
             }
         }
     }

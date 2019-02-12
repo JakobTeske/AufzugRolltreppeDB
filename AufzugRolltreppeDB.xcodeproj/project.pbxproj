@@ -19,26 +19,8 @@
 		36FD48B120D529B1006AC9DC /* FacilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD48B020D529B1006AC9DC /* FacilityViewController.swift */; };
 		7356991E212C05FB007D4684 /* FacilityMarkerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7356991D212C05FB007D4684 /* FacilityMarkerAnnotationView.swift */; };
 		73A8DFF620F5F96F0094F14B /* FacilitiesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8DFF520F5F96F0094F14B /* FacilitiesRepository.swift */; };
-		73F222BE2112F71B002EE2F6 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F222BD2112F71B002EE2F6 /* Promises.framework */; };
-		73F222BF2112F71B002EE2F6 /* Promises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73F222BD2112F71B002EE2F6 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		73F222C72112F8A6002EE2F6 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F222C62112F8A5002EE2F6 /* FBLPromises.framework */; };
-		73F222C92112F942002EE2F6 /* FBLPromises.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 73F222C62112F8A5002EE2F6 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		73D4D37C2211BD6800604E56 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4D37B2211BD6800604E56 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		73F222C02112F71B002EE2F6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				73F222BF2112F71B002EE2F6 /* Promises.framework in Embed Frameworks */,
-				73F222C92112F942002EE2F6 /* FBLPromises.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3621407620CC97AA001EF336 /* AufzugRolltreppeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AufzugRolltreppeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +37,7 @@
 		36FD48B020D529B1006AC9DC /* FacilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityViewController.swift; sourceTree = "<group>"; };
 		7356991D212C05FB007D4684 /* FacilityMarkerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityMarkerAnnotationView.swift; sourceTree = "<group>"; };
 		73A8DFF520F5F96F0094F14B /* FacilitiesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilitiesRepository.swift; sourceTree = "<group>"; };
+		73D4D37B2211BD6800604E56 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		73F222BD2112F71B002EE2F6 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
 		73F222C22112F74F002EE2F6 /* Promises.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Promises.framework.dSYM; path = Carthage/Build/iOS/Promises.framework.dSYM; sourceTree = "<group>"; };
 		73F222C62112F8A5002EE2F6 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
@@ -65,8 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F222BE2112F71B002EE2F6 /* Promises.framework in Frameworks */,
-				73F222C72112F8A6002EE2F6 /* FBLPromises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +89,7 @@
 				3621409120CD66D1001EF336 /* FacilityTableViewCell.swift */,
 				73A8DFF520F5F96F0094F14B /* FacilitiesRepository.swift */,
 				7356991D212C05FB007D4684 /* FacilityMarkerAnnotationView.swift */,
+				73D4D37B2211BD6800604E56 /* OnboardingViewController.swift */,
 			);
 			path = AufzugRolltreppeDB;
 			sourceTree = "<group>";
@@ -130,7 +112,6 @@
 				3621407220CC97AA001EF336 /* Sources */,
 				3621407320CC97AA001EF336 /* Frameworks */,
 				3621407420CC97AA001EF336 /* Resources */,
-				73F222C02112F71B002EE2F6 /* Embed Frameworks */,
 				73F222C42112F769002EE2F6 /* ShellScript */,
 			);
 			buildRules = (
@@ -204,7 +185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -220,6 +201,7 @@
 				7356991E212C05FB007D4684 /* FacilityMarkerAnnotationView.swift in Sources */,
 				3621408E20CC9F29001EF336 /* Facility.swift in Sources */,
 				36FD48B120D529B1006AC9DC /* FacilityViewController.swift in Sources */,
+				73D4D37C2211BD6800604E56 /* OnboardingViewController.swift in Sources */,
 				3621409020CD544F001EF336 /* FacilityDelegate.swift in Sources */,
 				36F194CC20D6FF0E0006E804 /* MapViewController.swift in Sources */,
 			);
